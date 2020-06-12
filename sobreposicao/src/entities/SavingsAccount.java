@@ -1,6 +1,7 @@
 package entities;
 
-public class SavingsAccount extends Account
+//final => impede que a classe seja herdada
+public final class SavingsAccount extends Account
 {
 	private double interestRate;
 	
@@ -25,9 +26,12 @@ public class SavingsAccount extends Account
 		balance += amount;
 	}
 	
-	//notação que indica sobreposição
+	/**
+	"@Override" => notação que indica sobreposição
+	final => impede que o método seja sobreposto
+	*/
 	@Override
-	public void withdrow(double amount)
+	public final void withdrow(double amount)
 	{
 		balance -= amount;
 	}
