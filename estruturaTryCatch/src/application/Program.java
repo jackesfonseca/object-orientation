@@ -15,12 +15,13 @@ public class Program
 			int position = sc.nextInt();
 			System.out.println(vect[position]);
 		}
-		
+
+		//acessou o array fora do limit
 		catch(ArrayIndexOutOfBoundsException e)
 		{
 			System.out.println("Invalid position");
 		}
-		
+		//Valor inválido para o inteiro
 		catch(InputMismatchException e)
 		{
 			System.out.println("Input Error");
