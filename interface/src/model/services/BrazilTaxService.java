@@ -1,6 +1,6 @@
 package model.services;
 
-public class BrazilTaxService
+public class BrazilTaxService implements TaxService//assinatura da implementação de interface
 {
 	public double tax(double amount)
 	{
