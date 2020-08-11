@@ -1,11 +1,10 @@
 package application;
 
-import model.entities.Rectangle;
-
 import java.util.Locale;
 
+import model.entities.AbstractShape;
 import model.entities.Circle;
-import model.entities.Shape;
+import model.entities.Rectangle;
 import model.enums.Color;
 
 public class Program
@@ -13,8 +12,8 @@ public class Program
 	public static void main(String[] args)
 	{
 		Locale.setDefault(Locale.US);
-		Shape s1 = new Rectangle(Color.BLACK, 2.0, 5.0);
-		Shape s2 = new Circle(Color.WHITE, 2.0);
+		AbstractShape s1 = new Rectangle(Color.BLACK, 2.0, 5.0);
+		AbstractShape s2 = new Circle(Color.WHITE, 2.0);
 		
 		System.out.println("Rectangle color: " + s1.getColor());
 		System.out.println("Rectamgle area: " + String.format("%.3f", s1.area()));
