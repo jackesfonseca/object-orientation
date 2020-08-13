@@ -1,32 +1,35 @@
 package application;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.BufferedReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import model.entities.Employee;
 
 public class Program
 {
 	public static void main(String[] args)
 	{
-		List<String> list = new ArrayList<>();
+		List<Employee> list = new ArrayList<>();
 		String path = "C:\\ws-eclipse\\Java_Learning\\java\\interfaceComparable\\out.txt";
 		
 		try(BufferedReader br = new BufferedReader(new FileReader(path)))
 		{
-			String name = br.readLine();//ler uma linha do arquivo
-			while(name != null)
+			String employeeCsv = br.readLine();//ler uma linha do arquivo
+			while(employeeCsv != null)
 			{
-				list.add(name);
-				name = br.readLine();
+				String fields[] = employeeCsv.split(",");
+				list.add(new Employee(fields[0], Double.parseDouble(fields[1])));
+				employeeCsv = br.readLine();
 			}
 			
 			Collections.sort(list);//metodo que ordena uma coleção, contido no pacote java.util.Collections
-			for(String l : list)
+			for(Employee emp : list)
 			{
-				System.out.println(l);
+				System.out.println(emp.getName() + ", " + emp.getSalary());
 			}
 		}
 		catch(IOException e)
